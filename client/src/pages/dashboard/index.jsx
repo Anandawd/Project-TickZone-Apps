@@ -4,7 +4,7 @@ import CustomBreadcrumb from "../../components/Breadcrumb";
 import CustomButton from "../../components/Button";
 import CustomNavbar from "../../components/Navbar";
 
-export default function Categories() {
+export default function Dashboard() {
   const token = localStorage.getItem("token");
 
   // if (!token) return <Navigate to="/login" replace={true} />;
@@ -12,7 +12,7 @@ export default function Categories() {
     <>
       <CustomNavbar />
       <Container className="mt-3">
-        <CustomBreadcrumb textSecond="Categories" />
+        <CustomBreadcrumb />
         <CustomButton>Tambah</CustomButton>
         <Table className="mt-3" striped bordered hover>
           <thead>
