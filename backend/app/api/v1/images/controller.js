@@ -1,5 +1,5 @@
 const { StatusCodes } = require("http-status-codes");
-const { createImages } = require("../../../services/mangoose/images");
+const { createImages } = require("../../../services/mongoose/images");
 
 const create = async (req, res, next) => {
   try {
