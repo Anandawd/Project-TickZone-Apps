@@ -1,24 +1,24 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button'
+import React from "react";
+import { Button } from "react-bootstrap";
 
 export default function CustomButton({
-    children, 
-    action,
-    variant,
-    size,
-    loading, 
-    disable,
-    className
+  children,
+  action,
+  variant,
+  size,
+  loading,
+  disable,
+  className,
 }) {
   return (
-    <Button 
-    className={className}
-    onClick={action}
-    variant={variant}
-    disabled={disable}
-    size={size}
+    <Button
+      className={className}
+      onClick={action}
+      variant={variant}
+      disabled={disable}
+      size={size}
     >
-        {loading ? 'Loading...' : children}
+      {loading ? "Loading..." : children}
     </Button>
-  )
+  );
 }

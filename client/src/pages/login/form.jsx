@@ -12,20 +12,20 @@ export default function FormLogin({
   return (
     <Form>
       <TextInputWithLabel
-        label="Email Address"
-        name="Email"
-        value={Form.email}
+        label={"Email"}
+        name="email"
+        value={form?.email}
         type="email"
-        placeholder="Enter email"
+        placeholder={"Masukkan email"}
         onChange={handleChange}
       />
 
       <TextInputWithLabel
-        label="Password"
-        name="Password"
-        value={Form.password}
+        label={"Password"}
+        name="password"
+        value={form?.password}
         type="password"
-        placeholder="Enter password"
+        placeholder={"Masukkan password"}
         onChange={handleChange}
       />
 
@@ -34,7 +34,6 @@ export default function FormLogin({
         disable={isLoading}
         action={handleSubmit}
         variant="primary"
-        type="submit"
       >
         Submit
       </CustomButton>

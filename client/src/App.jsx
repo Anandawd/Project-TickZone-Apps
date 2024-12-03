@@ -1,17 +1,17 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import CategoriesPage from "./pages/categories";
-import DashboardPage from "./pages/dashboard";
-import LoginPage from "./pages/login";
+import { listen } from "./redux/listener";
+import AppRoutes from "./routes";
 
 function App() {
+  useEffect(() => {
+    listen();
+  }, []);
+
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<DashboardPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/categories" element={<CategoriesPage />} />
-      </Routes>
+      <AppRoutes />
     </BrowserRouter>
   );
 }
