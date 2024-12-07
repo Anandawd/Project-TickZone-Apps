@@ -30,26 +30,26 @@ export default function CategoryCreate() {
 
   const handleSubmit = async () => {
     setIsLoading(true);
-    try {
-      const res = await postData(`/cms/categories`, form);
-      if (res?.data?.data) {
-        dispatch(
-          setNotif(
-            true,
-            "success",
-            `berhasil tambah kategori ${res.data.data.name}`
-          )
-        );
-      }
+
+    const res = await postData(`/cms/categories`, form);
+
+    if (res?.data?.data) {
+      dispatch(
+        setNotif(
+          true,
+          "success",
+          `berhasil tambah kategori ${res.data.data.name}`
+        )
+      );
       navigate("/categories");
       setIsLoading(false);
-    } catch (err) {
+    } else {
       setIsLoading(false);
       setAlert({
         ...alert,
         status: true,
         type: "danger",
-        message: err.response.data.msg,
+        message: res.response.data.msg,
       });
     }
   };

@@ -172,7 +172,8 @@ export default function EventsEdit() {
     };
 
     const res = await putData(`/cms/events/${eventId}`, payload);
-    if (res.data.data) {
+
+    if (res?.data?.data) {
       dispatch(
         setNotif(true, "success", `berhasil ubah events ${res.data.data.title}`)
       );

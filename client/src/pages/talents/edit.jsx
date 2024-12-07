@@ -109,6 +109,7 @@ function TalentsEdit() {
     };
 
     const res = await putData(`/cms/talents/${talentId}`, payload);
+
     if (res?.data?.data) {
       dispatch(
         setNotif(true, "success", `berhasil ubah speaker ${res.data.data.name}`)

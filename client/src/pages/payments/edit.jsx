@@ -108,7 +108,8 @@ export default function PaymentsEdit() {
     };
 
     const res = await putData(`/cms/payments/${paymentId}`, payload);
-    if (res.data.data) {
+
+    if (res?.data?.data) {
       dispatch(
         setNotif(
           true,

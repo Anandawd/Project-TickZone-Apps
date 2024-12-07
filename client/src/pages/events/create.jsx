@@ -130,9 +130,8 @@ function EventsCreate() {
     };
 
     const res = await postData("/cms/events/", payload);
-    console.log(res);
 
-    if (res.data.data) {
+    if (res?.data?.data) {
       dispatch(
         setNotif(
           true,

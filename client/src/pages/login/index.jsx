@@ -31,24 +31,26 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async () => {
-    try {
-      setIsLoading(true);
-      const res = await postData(`/cms/auth/signin`, form);
+    setIsLoading(true);
 
+    const res = await postData(`/cms/auth/signin`, form);
+
+    if (res?.data?.data) {
       dispatch(
         userLogin(
           res.data.data.token,
           res.data.data.role,
-          res.data.data.refreshToken
+          res.data.data.refreshToken,
+          res.data.data.email
         )
       );
       setIsLoading(false);
       navigate("/");
-    } catch (error) {
+    } else {
       setIsLoading(false);
       setAlert({
         status: true,
-        message: error?.response?.data?.msg ?? "Internal server error",
+        message: res?.response?.data?.msg ?? "Internal server error",
         type: "danger",
       });
     }
@@ -56,12 +58,12 @@ export default function Login() {
 
   return (
     <Container md={12}>
-      <div className="m-auto" style={{ width: "50%" }}>
+      <div className="m-auto mt-5" style={{ width: "50%" }}>
         {alert.status && (
           <CustomAlert message={alert.message} type={alert.type} />
         )}
       </div>
-      <Card style={{ width: "50%" }} className="m-auto mt-5">
+      <Card style={{ width: "50%" }} className="m-auto mt-3">
         <Card.Body>
           <Card.Title className="text-center mb-3">Login</Card.Title>
           <FormLogin

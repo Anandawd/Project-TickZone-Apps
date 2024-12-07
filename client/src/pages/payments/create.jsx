@@ -90,7 +90,7 @@ export default function PaymentsCreate() {
     };
 
     const res = await postData("/cms/payments", payload);
-    if (res.data.data) {
+    if (res?.data?.data) {
       dispatch(
         setNotif(
           true,
