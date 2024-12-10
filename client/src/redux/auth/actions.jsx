@@ -6,7 +6,7 @@ export function userLogin(token, role, refreshToken, email) {
     token,
     role,
     refreshToken,
-    // email,
+    email,
   };
 }
 
